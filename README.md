@@ -44,7 +44,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 ### Step 1.3: Wait for the Cluster to Provision
 
-The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
+1. The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
   
   <img src="https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif" height="10%" width="10%">
 
@@ -85,10 +85,13 @@ We will use a `kustomization.yaml` file to manage the creation of a Secret that 
 
 1. In the Cloud Shell terminal, create the file named `kustomization.yaml` with the following content:
 
-```yaml
+```
+cat <<EOF >./kustomization.yaml
 secretGenerator:
 - name: mysql-pass
-literals:
-- password=YOUR_PASSWORD
+  literals:
+  - password=YOUR_PASSWORD
+EOF
+```
 
 
