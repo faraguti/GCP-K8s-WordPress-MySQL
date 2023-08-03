@@ -14,7 +14,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 ### Step 1.1: Sign in to Google Cloud Console
 
-Ensure you have a Google Cloud account and sign in to the [Google Cloud Console](https://console.cloud.google.com/).
+1. Ensure you have a Google Cloud account and sign in to the [Google Cloud Console](https://console.cloud.google.com/).
 
 ### Step 1.2: Create a new Kubernetes Cluster
 
