@@ -77,7 +77,6 @@ The cluster creation process may take a few minutes. During this time, GCP will 
    This will display the name of the currently selected Kubernetes cluster context. Ensure it matches the name of the cluster you want to work with.
 
 <br></br>
-
 ## Step 2: Create PersistentVolumeClaims and PersistentVolumes
 
 MySQL and WordPress each require a PersistentVolume to store data. The PersistentVolumeClaims (PVCs) will be created during the deployment step.
