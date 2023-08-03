@@ -23,8 +23,8 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 2. Navigate to **Kubernetes Engine > Clusters**.
 
 3. Click on the **"Create"** button and then **SWITCH TO STANDARD CLUSTER**.
-   <br/>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/6e7c914e-ad05-474e-98cb-ab16c09b8ea1" height="90%" width="90%">
+<br/>
+<img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/6e7c914e-ad05-474e-98cb-ab16c09b8ea1" height="80%" width="80%">
 
 5. In the **"Cluster basics"** section:
    - Enter your desired **Cluster name** (e.g., cluster-faraguti-1).
