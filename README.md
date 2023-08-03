@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dafde3b6-0e3e-499c-8df5-22cb786c8856" height="100%" width="100%">
+</p>
+
 # Deploying WordPress and MySQL using Kubernetes
 
 ## Step 1: Create a Kubernetes Cluster on Google Cloud Platform (GCP)
