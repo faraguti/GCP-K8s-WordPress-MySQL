@@ -45,8 +45,8 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 ### Step 1.3: Wait for the Cluster to Provision
 
 The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
-
-        <img src=https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif height=10% width=10%>
+  
+  <img src=https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif height=10% width=10%>
 
 ### Step 1.4: Verify the Cluster Status
 
@@ -58,11 +58,24 @@ The cluster creation process may take a few minutes. During this time, GCP will 
 
 ### Step 1.5: Connect to the Cluster
 
-1. Click on the ``Connect`` button next to your cluster's name.
+1. Click on the **"Connect"** button next to your cluster's name.
 
-2. In the new window that opens, click on the ``Run in Cloud Shell`` button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
+2. In the new window that opens, click on the **"Run in Cloud Shell"** button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
 
-3. You are now connected to your Kubernetes cluster.
+   **Note**: Google Cloud Shell will automatically type the necessary command to connect to your Kubernetes cluster. Simply press **Enter** to execute the command.
+   <br></br>
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f height=90% width=90%>
+
+4. Click on **"Authorize Cloud Shell"** if prompted. This will grant the necessary permissions to manage resources in your GCP project.
+
+5. After a few moments, you are now connected to your Kubernetes cluster.
+
+You can proceed to deploy WordPress and MySQL to the cluster, ensuring data persistence through Persistent Volumes and Persistent Volume Claims.
+
+If you encounter any issues or need more information about using `kubectl` or Google Cloud Shell, you can refer to the official Google Cloud documentation for [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and [Google Cloud Shell](https://cloud.google.com/shell/docs).
+
+
+
 
 ### Step 1.6: Explore and Use the Cluster
 
