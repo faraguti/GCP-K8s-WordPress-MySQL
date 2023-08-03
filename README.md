@@ -70,12 +70,11 @@ The cluster creation process may take a few minutes. During this time, GCP will 
 
 5. After a few moments, you are now connected to your Kubernetes cluster.
 
-You can proceed to deploy WordPress and MySQL to the cluster, ensuring data persistence through Persistent Volumes and Persistent Volume Claims.
-
-If you encounter any issues or need more information about using `kubectl` or Google Cloud Shell, you can refer to the official Google Cloud documentation for [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and [Google Cloud Shell](https://cloud.google.com/shell/docs).
-
-
-
+   **Tip**: To verify that you are connected to the correct cluster, you can use the following command in the Cloud Shell:
+   ```
+   kubectl config current-context
+   ```
+   This will display the name of the currently selected Kubernetes cluster context. Ensure it matches the name of the cluster you want to work with.
 
 ### Step 1.6: Explore and Use the Cluster
 
