@@ -29,8 +29,11 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 5. In the **"Cluster basics"** section:
    - Enter your desired **Cluster name** (e.g., cluster-faraguti-1).
    - Select the **"Location type"** as **"Zonal"**.
+   - Choose your preferred zone.
+   <br></br>
+   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe" height="90%" width="90%">
 
-6. In the **"Master version"** section, select the latest stable Kubernetes version.
+
 
 7. In the **"Node pools"** section, click on **"default-pool"**:
    - Under **"Nodes"**, set the desired number of nodes to **2**.
