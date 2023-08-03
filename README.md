@@ -23,8 +23,7 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 2. Navigate to **Kubernetes Engine > Clusters**.
 
 3. Click on the **"Create"** button and then **SWITCH TO STANDARD CLUSTER**.
-  <br/>
-    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/0b8164a2-23c6-4f42-b699-dbe8cf701e3c" height="90%" width="90%">
+   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/0b8164a2-23c6-4f42-b699-dbe8cf701e3c" height="90%" width="90%">
 
 
 
