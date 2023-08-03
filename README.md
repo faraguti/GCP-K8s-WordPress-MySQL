@@ -22,20 +22,22 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 
 2. Navigate to **Kubernetes Engine > Clusters**.
 
-3. Click on the **"Create cluster"** button.
+3. Click on the **"Create"** button and then **SWITCH TO STANDARD CLUSTER**.
+   <br/>
+   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/6e7c914e-ad05-474e-98cb-ab16c09b8ea1" height="90%" width="90%">
 
-4. In the **"Cluster basics"** section:
+5. In the **"Cluster basics"** section:
    - Enter your desired **Cluster name** (e.g., cluster-faraguti-1).
    - Select the **"Location type"** as **"Zonal"**.
 
-5. In the **"Master version"** section, select the latest stable Kubernetes version.
+6. In the **"Master version"** section, select the latest stable Kubernetes version.
 
-6. In the **"Node pools"** section, click on **"default-pool"**:
+7. In the **"Node pools"** section, click on **"default-pool"**:
    - Under **"Nodes"**, set the desired number of nodes to **2**.
    - Under **"Machine type"**, select **"e2-small"**.
    - Under **"Boot disk size"**, set the size to **20GB**.
 
-7. Scroll down and click on the **"Create"** button to create the cluster.
+8. Scroll down and click on the **"Create"** button to create the cluster.
 
 ### Step 1.3: Wait for the Cluster to Provision
 
