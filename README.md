@@ -77,27 +77,25 @@ The cluster creation process may take a few minutes. During this time, GCP will 
    This will display the name of the currently selected Kubernetes cluster context. Ensure it matches the name of the cluster you want to work with.
 
 <br></br>
-## Step 2: Create PersistentVolumeClaims and PersistentVolumes
+## Step 2: Set up PersistentVolumeClaims and PersistentVolumes
 
-MySQL and WordPress each require a PersistentVolume to store data. The PersistentVolumeClaims (PVCs) will be created during the deployment step.
-
-In many cluster environments, there is a default StorageClass installed. If a StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass is used instead. When a PersistentVolumeClaim is created, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass configuration.
+Both MySQL and WordPress require a PersistentVolume to ensure data storage. The PersistentVolumeClaims (PVCs) will be automatically created during the deployment process.
+In most cluster environments, there is a default StorageClass pre-configured. If a specific StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass will be used instead. When a PersistentVolumeClaim is established, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass settings.
 
 > [!WARNING]
 > **In local clusters, the default StorageClass often uses the hostPath provisioner, which is suitable only for development and testing purposes. With hostPath volumes, data lives in `/tmp` on the node where the Pod is scheduled and does not move between nodes. If a Pod dies and gets scheduled to another node, or the node is rebooted, the data will be lost.**
 
-**Note**: If you are using a cluster that needs to use the hostPath provisioner, ensure that the `--enable-hostpath-provisioner` flag is set in the controller-manager component.
-
-**Note**: For Google Kubernetes Engine (GKE) clusters, please refer to the official guide for more details.
-
-### Create a `kustomization.yaml`
+### Create a `kustomization.yaml` file on Cloud Shell:
 
 We will use a `kustomization.yaml` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
 
-1. Create a file named `kustomization.yaml` with the following content:
+1. Still Create a file named `kustomization.yaml` with the following content:
 
-```yaml
+```
+cat <<EOF >./kustomization.yaml
 secretGenerator:
 - name: mysql-pass
   literals:
   - password=YOUR_PASSWORD
+EOF
+```
