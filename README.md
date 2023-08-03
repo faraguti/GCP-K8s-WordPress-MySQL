@@ -33,12 +33,12 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
    <br></br>
    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe" height="90%" width="90%">
 
-
-
-7. In the **"Node pools"** section, click on **"default-pool"**:
-   - Under **"Nodes"**, set the desired number of nodes to **2**.
-   - Under **"Machine type"**, select **"e2-small"**.
+7. In the **"Node pools"** section:
+   - Under **"default pool"**, set the desired number of nodes to **2**.
+   - Under **Nodes**, set **"Machine type"** to **"e2-small"**.
    - Under **"Boot disk size"**, set the size to **20GB**.
+   <br></br>
+   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/828d23a1-4ced-404a-93a3-cb114ff348c9" height="90%" width="90%">
 
 8. Scroll down and click on the **"Create"** button to create the cluster.
 
