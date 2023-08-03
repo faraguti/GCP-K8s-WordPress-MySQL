@@ -76,14 +76,30 @@ The cluster creation process may take a few minutes. During this time, GCP will 
    ```
    This will display the name of the currently selected Kubernetes cluster context. Ensure it matches the name of the cluster you want to work with.
 
-### Step 1.6: Explore and Use the Cluster
+<br></br>
 
-Congratulations! You have successfully created a Kubernetes cluster on Google Cloud Platform. You can now proceed to the next steps to deploy WordPress and MySQL to the cluster, ensuring data persistence through Persistent Volumes and Persistent Volume Claims.
+## Step 2: Create PersistentVolumeClaims and PersistentVolumes
 
-Before deploying your applications, you can further customize the cluster configuration, add node pools, set up networking, and more based on your specific requirements.
+MySQL and WordPress each require a PersistentVolume to store data. The PersistentVolumeClaims (PVCs) will be created during the deployment step.
 
-Please note that running a default pool with only 2 nodes might be suitable for small-scale deployments or testing purposes. For production scenarios, consider scaling up the cluster to handle higher traffic loads and provide better high-availability.
+In many cluster environments, there is a default StorageClass installed. If a StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass is used instead.
 
-For more information on managing Kubernetes clusters on GCP, consult the official [Google Kubernetes Engine documentation](https://cloud.google.com/kubernetes-engine/docs).
+When a PersistentVolumeClaim is created, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass configuration.
 
-Happy deploying!
+**Warning**: In local clusters, the default StorageClass often uses the hostPath provisioner, which is suitable only for development and testing purposes. With hostPath volumes, data lives in `/tmp` on the node where the Pod is scheduled and does not move between nodes. If a Pod dies and gets scheduled to another node, or the node is rebooted, the data will be lost.
+
+**Note**: If you are using a cluster that needs to use the hostPath provisioner, ensure that the `--enable-hostpath-provisioner` flag is set in the controller-manager component.
+
+**Note**: For Google Kubernetes Engine (GKE) clusters, please refer to the official guide for more details.
+
+### Create a `kustomization.yaml`
+
+We will use a `kustomization.yaml` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
+
+1. Create a file named `kustomization.yaml` with the following content:
+
+```yaml
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=YOUR_PASSWORD
