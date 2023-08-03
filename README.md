@@ -85,7 +85,7 @@ In most cluster environments, there is a default StorageClass pre-configured. If
 > [!WARNING]
 > **In local clusters, the default StorageClass often uses the hostPath provisioner, which is suitable only for development and testing purposes. With hostPath volumes, data lives in `/tmp` on the node where the Pod is scheduled and does not move between nodes. If a Pod dies and gets scheduled to another node, or the node is rebooted, the data will be lost.**
 
-### Create a `kustomization.yaml` file on Cloud Shell:
+### Step 2.1: Create a `kustomization.yaml` file on Cloud Shell:
 
 We will use a `kustomization.yaml` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
 
@@ -99,3 +99,6 @@ secretGenerator:
   - password=YOUR_PASSWORD
 EOF
 ```
+Replace YOUR_PASSWORD with your desired password for MySQL.
+
+By utilizing this kustomization.yaml, we will generate a Secret to store the MySQL password, which will be utilized during the MySQL deployment.
