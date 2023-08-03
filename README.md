@@ -81,11 +81,10 @@ The cluster creation process may take a few minutes. During this time, GCP will 
 
 MySQL and WordPress each require a PersistentVolume to store data. The PersistentVolumeClaims (PVCs) will be created during the deployment step.
 
-In many cluster environments, there is a default StorageClass installed. If a StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass is used instead.
+In many cluster environments, there is a default StorageClass installed. If a StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass is used instead. When a PersistentVolumeClaim is created, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass configuration.
 
-When a PersistentVolumeClaim is created, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass configuration.
-
-**Warning**: In local clusters, the default StorageClass often uses the hostPath provisioner, which is suitable only for development and testing purposes. With hostPath volumes, data lives in `/tmp` on the node where the Pod is scheduled and does not move between nodes. If a Pod dies and gets scheduled to another node, or the node is rebooted, the data will be lost.
+> **[!WARNING]  
+> In local clusters, the default StorageClass often uses the hostPath provisioner, which is suitable only for development and testing purposes. With hostPath volumes, data lives in `/tmp` on the node where the Pod is scheduled and does not move between nodes. If a Pod dies and gets scheduled to another node, or the node is rebooted, the data will be lost.**
 
 **Note**: If you are using a cluster that needs to use the hostPath provisioner, ensure that the `--enable-hostpath-provisioner` flag is set in the controller-manager component.
 
