@@ -46,6 +46,8 @@ Ensure you have a Google Cloud account and sign in to the [Google Cloud Console]
 
 The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
 
+<img src=https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif>
+
 ### Step 1.4: Verify the Cluster Status
 
 1. Once the cluster is provisioned, you'll be redirected to the ``Kubernetes Engine > Clusters`` page.
