@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dafde3b6-0e3e-499c-8df5-22cb786c8856" height="100%" width="100%">
+<p align=center>
+  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dafde3b6-0e3e-499c-8df5-22cb786c8856 height=100% width=100%>
 </p>
 
 # Deploying WordPress and MySQL using Kubernetes
@@ -24,21 +24,21 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 3. Click on the ``Create`` button and then ``SWITCH TO STANDARD CLUSTER``.
    <br></br>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/0b8164a2-23c6-4f42-b699-dbe8cf701e3c" height="90%" width="90%">
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/0b8164a2-23c6-4f42-b699-dbe8cf701e3c height=90% width=90%>
 
 5. In the ``Cluster basics`` section:
    - Enter your desired ``Cluster name`` (e.g., cluster-faraguti-1).
    - Select the ``Location type`` as ``Zonal``.
    - Choose your preferred zone.
    <br></br>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe" height="90%" width="90%">
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe height=90% width=90%>
 
 7. In the ``Node pools`` section:
    - Under ``default pool``, set the desired number of nodes to ``2``.
    - Under ``Nodes``, set ``Machine type`` to ``e2-small``.
    - Under ``Boot disk size``, set the size to ``20GB``.
    <br></br>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/828d23a1-4ced-404a-93a3-cb114ff348c9" height="90%" width="90%">
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/828d23a1-4ced-404a-93a3-cb114ff348c9 height=90% width=90%>
 
 8. Scroll down and click on the ``Create`` button to create the cluster.
 
@@ -46,7 +46,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 1. The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
   
-  <img src="https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif" height="5%" width="5%">
+  <img src=https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif height=5% width=5%>
 
 ### Step 1.4: Verify the Cluster Status
 
@@ -56,14 +56,14 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 ### Step 1.5: Connect to the Cluster
 
-  1. Click on the ``"Connect"`` button next to your cluster's name.
-     - In the new window that opens, click on the ``"Run in Cloud Shell"`` button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
+  1. Click on the ``Connect`` button next to your cluster's name.
+     - In the new window that opens, click on the ``Run in Cloud Shell`` button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
      ``Note``: Google Cloud Shell will automatically type the necessary command to connect to your Kubernetes cluster. Simply press ``Enter`` to execute the command.
     
    <br></br>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f" height="90%" width="90%">
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f height=90% width=90%>
 
-4. Click on ``"Authorize Cloud Shell"`` if prompted. This will grant the necessary permissions to manage resources in your GCP project.
+4. Click on ``Authorize Cloud Shell`` if prompted. This will grant the necessary permissions to manage resources in your GCP project.
 
 5. After a few moments, you are now connected to your Kubernetes cluster.
 
@@ -94,6 +94,6 @@ We will use a ``kustomization.yaml`` file to manage the creation of a Secret tha
     EOF
     ```
    <br></br>
-   <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c765047c-0c39-4eef-9e06-e8480b611e33" height="90%" width="90%">
+   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c765047c-0c39-4eef-9e06-e8480b611e33 height=90% width=90%>
 
 
