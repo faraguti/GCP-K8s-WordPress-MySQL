@@ -165,6 +165,14 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
 
    <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/7e2e43f5-2921-4892-b73b-86d9940747f4 height=90% width=90%>
 
+- Verify that the WordPress Service is running by running:
+  ```
+  kubectl get services wordpress
+  ```
+  - The response should include a Service similar to this:
+
+  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dcc719af-19de-4361-a900-c956db12bc1b height=90% width=90%>
+
 
 
 
