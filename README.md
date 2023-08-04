@@ -145,7 +145,8 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
    kubectl get secrets
    ```
 - The response should include a Secret similar to this:
-``NAME                    TYPE                                  DATA   AGE
-mysql-pass-c57bb4t7mf   Opaque                                1      9s
-``
+  ``
+  NAME                    TYPE                                  DATA   AGE
+  mysql-pass-c57bb4t7mf   Opaque                                1      9s
+  ``
 
