@@ -46,7 +46,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 1. The cluster creation process may take a few minutes. During this time, GCP will set up the necessary infrastructure and configure the Kubernetes components.
   
-  <img src="https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif" height="10%" width="10%">
+  <img src="https://sada.com/wp-content/plugins/bbpowerpack/assets/images/spinner.gif" height="5%" width="5%">
 
 ### Step 1.4: Verify the Cluster Status
 
