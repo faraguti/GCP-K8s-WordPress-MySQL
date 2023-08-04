@@ -119,7 +119,7 @@ In this step, we will add the necessary resource configurations for both MySQL a
   curl -LO https://k8s.io/examples/application/wordpress/wordpress-deployment.yaml
   ```
 
-- #### Add them to kustomization.yaml file
+###  Step 3.3: Add them to kustomization.yaml file
   ```
   cat <<EOF >>./kustomization.yaml
   resources:
