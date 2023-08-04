@@ -173,7 +173,12 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
 
   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dcc719af-19de-4361-a900-c956db12bc1b height=90% width=90%>
 
+- Copy the `EXTERNAL-IP` and load the page in your browser to view your site. You should see the WordPress set up page similar to the following screenshot:
 
+  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/773963f7-7ec7-452a-a9d3-81fc9cfebd54 height=90% width=90%>
+
+
+  
 
 
 
