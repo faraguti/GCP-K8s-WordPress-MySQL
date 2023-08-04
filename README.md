@@ -101,7 +101,7 @@ We will use a ``kustomization.yaml`` file to manage the creation of a Secret tha
 
 In this step, we will add the necessary resource configurations for both MySQL and WordPress deployments. These configurations are specified in YAML manifest files, and I will provide you with the links to download these files. Let's go through each deployment:
 
-- #### Step 3.3 MySQL Deployment
+- #### Step 3.1 MySQL Deployment
 
   The first deployment we'll set up is for MySQL. The following manifest defines a single-instance MySQL Deployment. Inside the MySQL container, a PersistentVolume is mounted at `/var/lib/mysql` to ensure data persistence. Additionally, we set the `MYSQL_ROOT_PASSWORD` environment variable, which allows you to define the database password securely using a Secret.
   
