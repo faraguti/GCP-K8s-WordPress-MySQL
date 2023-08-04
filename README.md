@@ -92,7 +92,7 @@ We will use a ``kustomization.yaml`` file to manage the creation of a Secret tha
       - password=YOUR_PASSWORD
     EOF
     ```
-   <br></br>
+   <br>
    <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c765047c-0c39-4eef-9e06-e8480b611e33 height=90% width=90%>
 
 <br></br>
