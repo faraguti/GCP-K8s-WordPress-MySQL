@@ -104,6 +104,7 @@ To enable MySQL and WordPress to run on our Kubernetes cluster, we'll create res
 ### MySQL Deployment
 
   1. Let's begin with MySQL. The following manifest defines a single-instance MySQL Deployment. The MySQL container will store its data in the PersistentVolume mounted at `/var/lib/mysql`. The `MYSQL_ROOT_PASSWORD` environment variable will be used to set the database password, sourced from the Secret we generated       earlier.
+     
      ```
     apiVersion: v1
     kind: Service
