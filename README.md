@@ -99,159 +99,23 @@ We will use a ``kustomization.yaml`` file to manage the creation of a Secret tha
 <br></br>
 ## Step 3: Configure MySQL and WordPress Deployments
 
-To enable MySQL and WordPress to run on our Kubernetes cluster, we'll create resource configurations for each of them.
+In this step, we will add the necessary resource configurations for both MySQL and WordPress deployments. These configurations are specified in YAML manifest files, and I will provide you with the links to download these files. Let's go through each deployment:
 
-### MySQL Deployment
+#### MySQL Deployment
 
-  1. Let's begin with MySQL. The following manifest defines a single-instance MySQL Deployment. The MySQL container will store its data in the PersistentVolume mounted at `/var/lib/mysql`. The `MYSQL_ROOT_PASSWORD` environment variable will be used to set the database password, sourced from the Secret we generated       earlier.
-     
-     ```
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: wordpress-mysql
-      labels:
-        app: wordpress
-    spec:
-      ports:
-        - port: 3306
-      selector:
-        app: wordpress
-        tier: mysql
-      clusterIP: None
-    ---
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: mysql-pv-claim
-      labels:
-        app: wordpress
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 20Gi
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: wordpress-mysql
-      labels:
-        app: wordpress
-    spec:
-      selector:
-        matchLabels:
-          app: wordpress
-          tier: mysql
-      strategy:
-        type: Recreate
-      template:
-        metadata:
-          labels:
-            app: wordpress
-            tier: mysql
-        spec:
-          containers:
-          - image: mysql:8.0
-            name: mysql
-            env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
-            - name: MYSQL_DATABASE
-              value: wordpress
-            - name: MYSQL_USER
-              value: wordpress
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
-            ports:
-            - containerPort: 3306
-              name: mysql
-            volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-          volumes:
-          - name: mysql-persistent-storage
-            persistentVolumeClaim:
-              claimName: mysql-pv-claim
-          ```
+The first deployment we'll set up is for MySQL. The following manifest defines a single-instance MySQL Deployment. Inside the MySQL container, a PersistentVolume is mounted at `/var/lib/mysql` to ensure data persistence. Additionally, we set the `MYSQL_ROOT_PASSWORD` environment variable, which allows you to define the database password securely using a Secret.
 
+Download the MySQL deployment configuration file.
+```
+curl -LO https://k8s.io/examples/application/wordpress/mysql-deployment.yaml
+```
 
-  3. Next, let's configure WordPress. The following manifest defines a single-instance WordPress Deployment. The WordPress container will store website data files in the PersistentVolume mounted at `/var/www/html`. We'll set the `WORDPRESS_DB_HOST` environment variable to point to the MySQL Service we just created. Additionally, the `WORDPRESS_DB_PASSWORD` environment variable will be sourced from the Secret we generated earlier.
-      ```
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: wordpress
-      labels:
-        app: wordpress
-    spec:
-      ports:
-        - port: 80
-      selector:
-        app: wordpress
-        tier: frontend
-      type: LoadBalancer
-    ---
-    apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: wp-pv-claim
-      labels:
-        app: wordpress
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 20Gi
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: wordpress
-      labels:
-        app: wordpress
-    spec:
-      selector:
-        matchLabels:
-          app: wordpress
-          tier: frontend
-      strategy:
-        type: Recreate
-      template:
-        metadata:
-          labels:
-            app: wordpress
-            tier: frontend
-        spec:
-          containers:
-          - image: wordpress:6.2.1-apache
-            name: wordpress
-            env:
-            - name: WORDPRESS_DB_HOST
-              value: wordpress-mysql
-            - name: WORDPRESS_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
-            - name: WORDPRESS_DB_USER
-              value: wordpress
-            ports:
-            - containerPort: 80
-              name: wordpress
-            volumeMounts:
-            - name: wordpress-persistent-storage
-              mountPath: /var/www/html
-          volumes:
-          - name: wordpress-persistent-storage
-            persistentVolumeClaim:
-              claimName: wp-pv-claim
-    ```
+#### WordPress Deployment
+
+The second deployment is for WordPress. The manifest describes a single-instance WordPress Deployment. Within the WordPress container, the PersistentVolume is mounted at `/var/www/html`, ensuring that your website's data files are preserved even if the container is recreated. We also set the `WORDPRESS_DB_HOST` environment variable to point to the MySQL Service that we just deployed. WordPress will use this Service to access the MySQL database. The `WORDPRESS_DB_PASSWORD` environment variable is automatically sourced from the Secret generated by kustomize.
+
+Download the WordPress configuration file.
+```
+curl -LO https://k8s.io/examples/application/wordpress/wordpress-deployment.yaml
+```
+
