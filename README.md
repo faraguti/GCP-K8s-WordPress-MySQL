@@ -60,8 +60,8 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
      - In the new window that opens, click on the ``Run in Cloud Shell`` button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
      ``Note``: Google Cloud Shell will automatically type the necessary command to connect to your Kubernetes cluster. Simply press ``Enter`` to execute the command.
     
-   <br></br>
-   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f height=90% width=90%>
+     <br></br>
+     <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f height=90% width=90%>
 
 4. Click on ``Authorize Cloud Shell`` if prompted. This will grant the necessary permissions to manage resources in your GCP project.
 
