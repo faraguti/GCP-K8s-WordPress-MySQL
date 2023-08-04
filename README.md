@@ -144,8 +144,8 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
    ```
    kubectl get secrets
    ```
-- The response should include a Secret similar to this:
-  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/2a1ddd9a-94ea-43df-b960-95cae1ba369d height=90% width=90%>
+  - The response should include a Secret similar to this:
+    <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/2a1ddd9a-94ea-43df-b960-95cae1ba369d height=90% width=90%>
 
 - Verify that the PersistentVolumes got dynamically provisioned by running:
   ```
@@ -171,7 +171,7 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
   ```
   - The response should include a Service similar to this:
 
-  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dcc719af-19de-4361-a900-c956db12bc1b height=90% width=90%>
+    <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/dcc719af-19de-4361-a900-c956db12bc1b height=90% width=90%>
 
 
 
