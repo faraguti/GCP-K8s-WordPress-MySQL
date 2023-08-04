@@ -154,7 +154,7 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
   > [!NOTE]  
   > It may take a few minutes for the PVs to be provisioned and bound.
 
-  - The response should include PVCs similar to this:
+- The response should include PVCs similar to this:
   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/5dbb7f2f-c977-44bf-bb9c-bf18cc9a3264 height=90% width=90%>
 
 
