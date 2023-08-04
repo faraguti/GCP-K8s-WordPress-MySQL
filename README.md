@@ -157,4 +157,15 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
 - The response should include PVCs similar to this:
   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/5dbb7f2f-c977-44bf-bb9c-bf18cc9a3264 height=90% width=90%>
 
+- Check if the Pods are running by running:
+  ```
+  kubectl get pods
+  ```
+  
+ > [!NOTE]  
+ > It may take a few minutes for the Pod's Status to be RUNNING. The response should include Pods similar to this:
+
+
+
+
 
