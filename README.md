@@ -161,9 +161,8 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
   ```
   kubectl get pods
   ```
-  
- > [!NOTE]  
- > It may take a few minutes for the Pod's Status to be RUNNING. The response should include Pods similar to this:
+   > [!NOTE]  
+   > It may take a few minutes for the Pod's Status to be RUNNING. The response should include Pods similar to this:
 
 
 
