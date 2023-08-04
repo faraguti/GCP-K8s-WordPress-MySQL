@@ -85,13 +85,13 @@ We will use a `kustomization.yaml` file to manage the creation of a Secret that 
 
 1. In the Cloud Shell terminal, create the file named `kustomization.yaml` with the following content:
 
-  ```
-  cat <<EOF >./kustomization.yaml
-  secretGenerator:
-  - name: mysql-pass
-    literals:
-    - password=YOUR_PASSWORD
-  EOF
-  ```
+    ```
+    cat <<EOF >./kustomization.yaml
+    secretGenerator:
+    - name: mysql-pass
+      literals:
+      - password=YOUR_PASSWORD
+    EOF
+    ```
 
 
