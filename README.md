@@ -104,152 +104,152 @@ To enable MySQL and WordPress to run on our Kubernetes cluster, we'll create res
 ### MySQL Deployment
 
   1. Let's begin with MySQL. The following manifest defines a single-instance MySQL Deployment. The MySQL container will store its data in the PersistentVolume mounted at `/var/lib/mysql`. The `MYSQL_ROOT_PASSWORD` environment variable will be used to set the database password, sourced from the Secret we generated earlier.
-  ```
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: wordpress-mysql
-    labels:
-      app: wordpress
-  spec:
-    ports:
-      - port: 3306
-    selector:
-      app: wordpress
-      tier: mysql
-    clusterIP: None
-  ---
-  apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    name: mysql-pv-claim
-    labels:
-      app: wordpress
-  spec:
-    accessModes:
-      - ReadWriteOnce
-    resources:
-      requests:
-        storage: 20Gi
-  ---
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: wordpress-mysql
-    labels:
-      app: wordpress
-  spec:
-    selector:
-      matchLabels:
+      ```
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: wordpress-mysql
+      labels:
+        app: wordpress
+    spec:
+      ports:
+        - port: 3306
+      selector:
         app: wordpress
         tier: mysql
-    strategy:
-      type: Recreate
-    template:
-      metadata:
-        labels:
+      clusterIP: None
+    ---
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mysql-pv-claim
+      labels:
+        app: wordpress
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: wordpress-mysql
+      labels:
+        app: wordpress
+    spec:
+      selector:
+        matchLabels:
           app: wordpress
           tier: mysql
-      spec:
-        containers:
-        - image: mysql:8.0
-          name: mysql
-          env:
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql-pass
-                key: password
-          - name: MYSQL_DATABASE
-            value: wordpress
-          - name: MYSQL_USER
-            value: wordpress
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql-pass
-                key: password
-          ports:
-          - containerPort: 3306
+      strategy:
+        type: Recreate
+      template:
+        metadata:
+          labels:
+            app: wordpress
+            tier: mysql
+        spec:
+          containers:
+          - image: mysql:8.0
             name: mysql
-          volumeMounts:
+            env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_USER
+              value: wordpress
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+            ports:
+            - containerPort: 3306
+              name: mysql
+            volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+          volumes:
           - name: mysql-persistent-storage
-            mountPath: /var/lib/mysql
-        volumes:
-        - name: mysql-persistent-storage
-          persistentVolumeClaim:
-            claimName: mysql-pv-claim
-  ```
+            persistentVolumeClaim:
+              claimName: mysql-pv-claim
+          ```
 
   2. Next, let's configure WordPress. The following manifest defines a single-instance WordPress Deployment. The WordPress container will store website data files in the PersistentVolume mounted at `/var/www/html`. We'll set the `WORDPRESS_DB_HOST` environment variable to point to the MySQL Service we just created. Additionally, the `WORDPRESS_DB_PASSWORD` environment variable will be sourced from the Secret we generated earlier.
-  ```
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: wordpress
-    labels:
-      app: wordpress
-  spec:
-    ports:
-      - port: 80
-    selector:
-      app: wordpress
-      tier: frontend
-    type: LoadBalancer
-  ---
-  apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    name: wp-pv-claim
-    labels:
-      app: wordpress
-  spec:
-    accessModes:
-      - ReadWriteOnce
-    resources:
-      requests:
-        storage: 20Gi
-  ---
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: wordpress
-    labels:
-      app: wordpress
-  spec:
-    selector:
-      matchLabels:
+      ```
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: wordpress
+      labels:
+        app: wordpress
+    spec:
+      ports:
+        - port: 80
+      selector:
         app: wordpress
         tier: frontend
-    strategy:
-      type: Recreate
-    template:
-      metadata:
-        labels:
+      type: LoadBalancer
+    ---
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: wp-pv-claim
+      labels:
+        app: wordpress
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: wordpress
+      labels:
+        app: wordpress
+    spec:
+      selector:
+        matchLabels:
           app: wordpress
           tier: frontend
-      spec:
-        containers:
-        - image: wordpress:6.2.1-apache
-          name: wordpress
-          env:
-          - name: WORDPRESS_DB_HOST
-            value: wordpress-mysql
-          - name: WORDPRESS_DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql-pass
-                key: password
-          - name: WORDPRESS_DB_USER
-            value: wordpress
-          ports:
-          - containerPort: 80
+      strategy:
+        type: Recreate
+      template:
+        metadata:
+          labels:
+            app: wordpress
+            tier: frontend
+        spec:
+          containers:
+          - image: wordpress:6.2.1-apache
             name: wordpress
-          volumeMounts:
+            env:
+            - name: WORDPRESS_DB_HOST
+              value: wordpress-mysql
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+            - name: WORDPRESS_DB_USER
+              value: wordpress
+            ports:
+            - containerPort: 80
+              name: wordpress
+            volumeMounts:
+            - name: wordpress-persistent-storage
+              mountPath: /var/www/html
+          volumes:
           - name: wordpress-persistent-storage
-            mountPath: /var/www/html
-        volumes:
-        - name: wordpress-persistent-storage
-          persistentVolumeClaim:
-            claimName: wp-pv-claim
-  ```
+            persistentVolumeClaim:
+              claimName: wp-pv-claim
+    ```
