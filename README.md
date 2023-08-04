@@ -136,11 +136,11 @@ In this step, we will add the necessary resource configurations for both MySQL a
 
 Now that we have all the necessary resource configurations for MySQL and WordPress deployments in our `kustomization.yaml`, we can proceed to apply and verify the setup.
 
--  Apply the directory by running the following command:
+- Apply the directory by running the following command:
    ```
    kubectl apply -k ./
    ```
--  Verify that all objects exist:
+- Verify that all objects exist:
    ```
    kubectl get secrets
    ```
