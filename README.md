@@ -133,3 +133,7 @@ In this step, we will add the necessary resource configurations for both MySQL a
 
 <br></br>
 ## Step 4: Apply and Verify
+
+Now that we have all the necessary resource configurations for MySQL and WordPress deployments in our `kustomization.yaml`, we can proceed to apply and verify the setup.
+
+1. Apply the directory by running the following command:
