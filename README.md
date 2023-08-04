@@ -127,6 +127,9 @@ In this step, we will add the necessary resource configurations for both MySQL a
     - wordpress-deployment.yaml
   EOF
   ```
+  <br></br>
+  <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/f8c8e52d-fe5e-41bd-945b-145c3e4aa338 height=90% width=90%>
+
 
 <br></br>
 ## Step 4: Apply and Verify
