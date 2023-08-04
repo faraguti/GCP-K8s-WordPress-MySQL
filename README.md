@@ -127,3 +127,6 @@ In this step, we will add the necessary resource configurations for both MySQL a
     - wordpress-deployment.yaml
   EOF
   ```
+
+<br></br>
+## Step 4: Apply and Verify
