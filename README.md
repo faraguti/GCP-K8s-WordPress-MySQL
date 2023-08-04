@@ -81,7 +81,7 @@ In most cluster environments, there is a default StorageClass pre-configured. If
 
 ### Step 2.1: Create a kustomization.yaml file on Cloud Shell:
 
-We will use a `kustomization.yaml` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
+We will use a ``kustomization.yaml`` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
 
 1. In the Cloud Shell terminal, create the file named `kustomization.yaml` with the following content:
 
