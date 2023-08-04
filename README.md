@@ -177,6 +177,15 @@ Now that we have all the necessary resource configurations for MySQL and WordPre
 
   <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/773963f7-7ec7-452a-a9d3-81fc9cfebd54 height=90% width=90%>
 
+<br></br>
+## Step 5 - Optional: Cleaning up
+
+Once you are done with your WordPress and MySQL deployments, you can clean up the resources by running the following command:
+```
+kubectl delete -k ./
+```
+This command will delete the Secret, Deployments, Services, and PersistentVolumeClaims associated with your application. The resources will be removed from your Kubernetes cluster, and any allocated storage will be released.
+
 
   
 
