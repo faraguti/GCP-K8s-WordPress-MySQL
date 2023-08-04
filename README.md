@@ -18,29 +18,29 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 ### Step 1.2: Create a new Kubernetes Cluster
 
-1. In the Google Cloud Console, click on the **Navigation menu** (three horizontal lines) in the upper-left corner.
+1. In the Google Cloud Console, click on the ``Navigation menu`` (three horizontal lines) in the upper-left corner.
 
-2. Navigate to **Kubernetes Engine > Clusters**.
+2. Navigate to ``Kubernetes Engine > Clusters``.
 
-3. Click on the **Create** button and then **SWITCH TO STANDARD CLUSTER**.
+3. Click on the ``Create`` button and then ``SWITCH TO STANDARD CLUSTER``.
    <br></br>
    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/0b8164a2-23c6-4f42-b699-dbe8cf701e3c" height="90%" width="90%">
 
-5. In the **Cluster basics** section:
-   - Enter your desired **Cluster name** (e.g., cluster-faraguti-1).
-   - Select the **Location type** as **Zonal**.
+5. In the ``Cluster basics`` section:
+   - Enter your desired ``Cluster name`` (e.g., cluster-faraguti-1).
+   - Select the ``Location type`` as ``Zonal``.
    - Choose your preferred zone.
    <br></br>
    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe" height="90%" width="90%">
 
-7. In the **Node pools** section:
-   - Under **default pool**, set the desired number of nodes to **2**.
-   - Under **Nodes**, set **Machine type** to **e2-small**.
-   - Under **Boot disk size**, set the size to **20GB**.
+7. In the ``Node pools`` section:
+   - Under ``default pool``, set the desired number of nodes to ``2``.
+   - Under ``Nodes``, set ``Machine type`` to ``e2-small``.
+   - Under ``Boot disk size``, set the size to ``20GB``.
    <br></br>
    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/828d23a1-4ced-404a-93a3-cb114ff348c9" height="90%" width="90%">
 
-8. Scroll down and click on the **Create** button to create the cluster.
+8. Scroll down and click on the ``Create`` button to create the cluster.
 
 ### Step 1.3: Wait for the Cluster to Provision
 
@@ -50,24 +50,24 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 
 ### Step 1.4: Verify the Cluster Status
 
-  - Once the cluster is provisioned, you'll be redirected to the **Kubernetes Engine > Clusters** page.
+  - Once the cluster is provisioned, you'll be redirected to the ``Kubernetes Engine > Clusters`` page.
   - In the list of clusters, you should see your newly created cluster with the name you provided.
-  - The cluster status will initially show as **Provisioning**, and it will change to **Running** once it's ready.
+  - The cluster status will initially show as ``Provisioning``, and it will change to ``Running`` once it's ready.
 
 ### Step 1.5: Connect to the Cluster
 
-  1. Click on the **"Connect"** button next to your cluster's name.
-     - In the new window that opens, click on the **"Run in Cloud Shell"** button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
-     **Note**: Google Cloud Shell will automatically type the necessary command to connect to your Kubernetes cluster. Simply press **Enter** to execute the command.
+  1. Click on the ``"Connect"`` button next to your cluster's name.
+     - In the new window that opens, click on the ``"Run in Cloud Shell"`` button. This will open a Google Cloud Shell session, and it will automatically configure the `kubectl` command-line tool to interact with your cluster.
+     ``Note``: Google Cloud Shell will automatically type the necessary command to connect to your Kubernetes cluster. Simply press ``Enter`` to execute the command.
     
    <br></br>
    <img src="https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/c8b55f65-8a56-4727-8a65-ce569af5a74f" height="90%" width="90%">
 
-4. Click on **"Authorize Cloud Shell"** if prompted. This will grant the necessary permissions to manage resources in your GCP project.
+4. Click on ``"Authorize Cloud Shell"`` if prompted. This will grant the necessary permissions to manage resources in your GCP project.
 
 5. After a few moments, you are now connected to your Kubernetes cluster.
 
-   **Tip**: To verify that you are connected to the correct cluster, you can use the following command in the Cloud Shell:
+   ``Tip``: To verify that you are connected to the correct cluster, you can use the following command in the Cloud Shell:
    ```
    kubectl config current-context
    ```
@@ -79,7 +79,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 Both MySQL and WordPress require a PersistentVolume to ensure data storage. The PersistentVolumeClaims (PVCs) will be automatically created during the deployment process.
 In most cluster environments, there is a default StorageClass pre-configured. If a specific StorageClass is not specified in the PersistentVolumeClaim, the cluster's default StorageClass will be used instead. When a PersistentVolumeClaim is established, a PersistentVolume (PV) is dynamically provisioned based on the StorageClass settings.
 
-### Step 2.1: Create a `kustomization.yaml` file on Cloud Shell:
+### Step 2.1: Create a kustomization.yaml file on Cloud Shell:
 
 We will use a `kustomization.yaml` file to manage the creation of a Secret that stores sensitive data like passwords or keys.
 
