@@ -10,7 +10,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
 - Cluster name: cluster-faraguti-1 (You can rename it to your preference)
 - Machine type: e2-small
 - Boot disk size: 20GB (Standard persistent disk)
-- Default pool: 2 nodes
+- Default pool: 1 nodes
 
 ### Step 1.1: Sign in to Google Cloud Console
 
@@ -34,7 +34,7 @@ In this step, we will create a Kubernetes cluster on Google Cloud Platform (GCP)
    <img src=https://github.com/faraguti/GCP-K8s-WordPress-MySQL/assets/5418256/eed6cb10-b01d-4b33-8dcd-d0ffdde09cfe height=90% width=90%>
 
 7. In the ``Node pools`` section:
-   - Under ``default pool``, set the desired number of nodes to ``2``.
+   - Under ``default pool``, set the desired number of nodes to ``1``.
    - Under ``Nodes``, set ``Machine type`` to ``e2-small``.
    - Under ``Boot disk size``, set the size to ``20GB``.
    <br></br>
